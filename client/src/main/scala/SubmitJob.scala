@@ -88,7 +88,7 @@ object SubmitJob {
 
   def getSnapshotId(sessionId: Int): String = {
     val code =
-      s"""spark.sql("SELECT snapshot_id, committed_at FROM ${ICEBERG_TABLE}.snapshots ORDER BY committed_at DESC").show(false)"""
+      s"""spark.sql("SELECT snapshot_id, committed_at FROM $ICEBERG_TABLE.snapshots ORDER BY committed_at DESC").show(false)"""
     val payload = ujson.Obj("code" -> code)
 
     val response = quickRequest
