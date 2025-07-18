@@ -17,6 +17,7 @@
             scala_2_12
             sbt
             metals
+            scalafmt
           ];
 
           shellHook = ''
