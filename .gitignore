@@ -1,0 +1,6 @@
+target/
+.metals/
+namenode/
+datanode1/
+datanode2/
+.bloop/
