@@ -8,7 +8,8 @@ object SubmitJob {
   val JAR_PATH = "/opt/livy/jars/job.jar"
   val ICEBERG_DEP = "org.apache.iceberg:iceberg-spark-runtime-3.5_2.12:1.5.1"
   val HDFS_PATH = "hdfs://namenode:9000/warehouse"
-  val ICEBERG_TABLE = "my_catalog.default.recommendations"
+  val ICEBERG_CATALOG = "my_catalog"
+  val ICEBERG_TABLE = s"$ICEBERG_CATALOG.default.recommendations"
   val POLL_MS = 3000
 
   def main(args: Array[String]): Unit = {
@@ -29,9 +30,9 @@ object SubmitJob {
     val conf = ujson.Obj(
       "spark.jars.packages" -> ICEBERG_DEP,
       "spark.sql.extensions" -> "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions",
-      "spark.sql.catalog.my_catalog" -> "org.apache.iceberg.spark.SparkCatalog",
-      "spark.sql.catalog.my_catalog.type" -> "hadoop",
-      "spark.sql.catalog.my_catalog.warehouse" -> HDFS_PATH
+      s"spark.sql.catalog.$ICEBERG_CATALOG" -> "org.apache.iceberg.spark.SparkCatalog",
+      s"spark.sql.catalog.$ICEBERG_CATALOG.type" -> "hadoop",
+      s"spark.sql.catalog.$ICEBERG_CATALOG.warehouse" -> HDFS_PATH
     )
     val payload = ujson.Obj(
       "kind" -> "spark",
