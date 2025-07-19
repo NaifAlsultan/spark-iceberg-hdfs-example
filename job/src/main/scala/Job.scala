@@ -5,7 +5,7 @@ import scala.collection.mutable.HashMap
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.expressions.Window
 
-object Main {
+object Job {
   val APP_NAME = "iceberg-recommendation-pipeline"
   val ICEBERG_CATALOG = "my_catalog"
   val ICEBERG_RECOMMENDATIONS_TABLE =
