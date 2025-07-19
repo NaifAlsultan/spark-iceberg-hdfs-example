@@ -4,9 +4,15 @@
 
 Ensure that you have `docker` installed and the Docker deamon up and running. See their [docs](https://docs.docker.com/engine/install/) for setup instructions.
 
+Clone the repository with the below command:
+
+```bash
+git clone https://github.com/NaifAlsultan/spark-iceberg-hdfs-example.git
+```
+
 ## Dev Env
 
-If you're using [Nix](https://nixos.org/), run the below command in `spark-iceberg-assignment/` to enter into a shell environment with all the necessary packages:
+If you're using [Nix](https://nixos.org/), run the below command in `spark-iceberg-hdfs-example/` to enter into a shell environment with all the necessary packages:
 
 ```bash
 nix develop
