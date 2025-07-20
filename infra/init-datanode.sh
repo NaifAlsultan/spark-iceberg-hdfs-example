@@ -5,10 +5,7 @@ set -e
 
 DATANODE_DIR="/opt/hadoop/data/dataNode"
 
-if [ -d "$DATANODE_DIR" ]; then
-    rm -rf "$DATANODE_DIR"/*
-    echo "DataNode directory cleaned successfully."
-else
+if [ ! -d "$DATANODE_DIR" ]; then
     echo "DataNode directory does not exist. Creating..."
     mkdir -p "$DATANODE_DIR"
 fi
